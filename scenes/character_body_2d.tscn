@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt1qcr8ogdwy5"]
+
+[ext_resource type="Script" path="res://scriptes/movement.gd" id="1_54gbm"]
+[ext_resource type="Texture2D" uid="uid://i58amjegl33o" path="res://resources/art/dust1.png" id="2_2p162"]
+[ext_resource type="Texture2D" uid="uid://der6y1ttyihl8" path="res://resources/art/playermodel.png" id="4_7d0qx"]
+
+[node name="Character" type="CharacterBody2D"]
+motion_mode = 1
+safe_margin = 20.0
+script = ExtResource("1_54gbm")
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+scale = Vector2(0.1, 0.1)
+emitting = false
+amount = 16
+one_shot = true
+speed_scale = 4.0
+randomness = 0.1
+fixed_fps = 144
+texture = ExtResource("2_2p162")
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 100.0
+angular_velocity_min = -45.0
+angular_velocity_max = 45.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+
+[node name="Sprite" type="Sprite2D" parent="." groups=["player"]]
+scale = Vector2(5, 5)
+texture = ExtResource("4_7d0qx")
+
+[node name="HitBox" type="CollisionPolygon2D" parent="." groups=["player"]]
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(-7.5, -2.5, -7.5, -5, -5, -5, -5, -2.5, -2.5, -2.5, -2.5, 2.5, -5, 2.5, -5, 5, -7.5, 5, -7.5, 2.5, -10, 2.5, -10, 10, -5, 10, -5, 7.5, 0, 7.5, 0, 5, 7.5, 5, 7.5, 2.5, 10, 2.5, 10, -2.5, 7.5, -2.5, 7.5, -5, 0, -5, 0, -7.5, -5, -7.5, -5, -10, -10, -10, -10, -2.5)
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+input_pickable = false
+
+[node name="HitBox" type="CollisionPolygon2D" parent="Area2D" groups=["player"]]
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(-7.5, -2.5, -7.5, -5, -5, -5, -5, -2.5, -2.5, -2.5, -2.5, 2.5, -5, 2.5, -5, 5, -7.5, 5, -7.5, 2.5, -10, 2.5, -10, 10, -5, 10, -5, 7.5, 0, 7.5, 0, 5, 7.5, 5, 7.5, 2.5, 10, 2.5, 10, -2.5, 7.5, -2.5, 7.5, -5, 0, -5, 0, -7.5, -5, -7.5, -5, -10, -10, -10, -10, -2.5)
+disabled = true
+
+[node name="Timer" type="Timer" parent="." groups=["player"]]
+wait_time = 10.0
+one_shot = true
+
+[node name="DTTimer" type="Timer" parent="." groups=["player"]]
+one_shot = true
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_hit"]
+[connection signal="timeout" from="DTTimer" to="." method="_on_dt_timer_timeout"]

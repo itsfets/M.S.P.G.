@@ -1,0 +1,33 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://cydffcwh5gqxp"]
+
+[sub_resource type="Curve" id="Curve_2twkm"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qcl3u"]
+curve = SubResource("Curve_2twkm")
+
+[resource]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(40, 40, 1)
+angle_max = 360.0
+direction = Vector3(0, 0, 0)
+flatness = 0.75
+initial_velocity_min = 600.0
+initial_velocity_max = 1000.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+angular_velocity_curve = SubResource("CurveTexture_qcl3u")
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -60.0
+linear_accel_max = -40.0
+scale_min = 5.0
+scale_max = 5.0
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.3
+collision_use_scale = true

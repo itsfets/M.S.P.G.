@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://1pe5s5tqobno"]
+
+[ext_resource type="Script" path="res://scriptes/mob2.gd" id="1_nfvoi"]
+[ext_resource type="Texture2D" uid="uid://i58amjegl33o" path="res://resources/art/dust1.png" id="3_ys3vm"]
+[ext_resource type="Texture2D" uid="uid://cpjmbwvtumutd" path="res://resources/art/Enemyrocket2.png" id="4_51a3e"]
+
+[node name="EnemyBody" type="CharacterBody2D" groups=["mob"]]
+position = Vector2(-166, -115)
+collision_layer = 3
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_nfvoi")
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+scale = Vector2(0.1, 0.1)
+amount = 12
+speed_scale = 4.0
+randomness = 0.1
+lifetime_randomness = 0.1
+texture = ExtResource("3_ys3vm")
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 100.0
+angular_velocity_min = -45.0
+angular_velocity_max = 45.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("4_51a3e")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+autostart = true
+
+[node name="Hitbox" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(-10, -10, -20, -10, -20, -20, 10, -20, 10, -15, 15, -15, 15, -10, 20, -10, 20, 10, 15, 10, 15, 15, 10, 15, 10, 20, -20, 20, -20, 10, -10, 10, -10, 5, -5, 5, -5, -5, -10, -5)
+one_way_collision_margin = 0.0
+
+[connection signal="tree_entered" from="." to="." method="_on_spawn"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
