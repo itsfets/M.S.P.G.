@@ -1,34 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://djkr33bvpx4wv"]
+[gd_scene load_steps=8 format=3 uid="uid://djkr33bvpx4wv"]
 
 [ext_resource type="Script" path="res://scriptes/main.gd" id="1_h16ri"]
 [ext_resource type="PackedScene" uid="uid://dl6aph6gafpig" path="res://scenes/hud.tscn" id="3_bc5xh"]
 [ext_resource type="PackedScene" uid="uid://bt1qcr8ogdwy5" path="res://scenes/character_body_2d.tscn" id="3_ftjma"]
 [ext_resource type="AudioStream" uid="uid://cbowj5q66wfgq" path="res://resources/sound/spawn.mp3" id="3_fvdxj"]
-[ext_resource type="Texture2D" uid="uid://b32xj7obtrn1q" path="res://resources/art/image-001.png" id="5_6cmhs"]
-[ext_resource type="Texture2D" uid="uid://tli4spo0o4xb" path="res://resources/art/image-002.png" id="6_j3jql"]
+[ext_resource type="Texture2D" uid="uid://bokvfuyqn4hxh" path="res://resources/art/background.png" id="5_um5yw"]
 [ext_resource type="AudioStream" uid="uid://bb5fc5qorlh02" path="res://resources/sound/expl.mp3" id="6_rkik2"]
-[ext_resource type="Texture2D" uid="uid://cq1iknod7buy6" path="res://resources/art/image-003.png" id="7_ndygt"]
-[ext_resource type="Texture2D" uid="uid://ckjd0ulc3qm0m" path="res://resources/art/image-004.png" id="8_7gka1"]
-[ext_resource type="Texture2D" uid="uid://dmp3f3tbxko5b" path="res://resources/art/image-005.png" id="9_ywu6j"]
 
 [sub_resource type="Curve2D" id="Curve2D_6bg8d"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1920, 0, 0, 0, 0, 0, 1920, 1080, 0, 0, 0, 0, 0, 1080, 0, 0, 0, 0, 0, 0)
 }
 point_count = 5
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_ht8a7"]
-frames = 5
-speed_scale = 10.0
-frame_0/texture = ExtResource("5_6cmhs")
-frame_1/texture = ExtResource("6_j3jql")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("7_ndygt")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("8_7gka1")
-frame_3/duration = 1.0
-frame_4/texture = ExtResource("9_ywu6j")
-frame_4/duration = 1.0
 
 [node name="Node" type="Node"]
 script = ExtResource("1_h16ri")
@@ -66,10 +49,8 @@ wait_time = 0.2
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
-modulate = Color(0.862745, 0.862745, 0.862745, 1)
-self_modulate = Color(0.27451, 0.27451, 0.27451, 1)
-scale = Vector2(3.2, 3.2)
-texture = SubResource("AnimatedTexture_ht8a7")
+scale = Vector2(5, 5)
+texture = ExtResource("5_um5yw")
 centered = false
 
 [node name="expl" type="AudioStreamPlayer" parent="."]

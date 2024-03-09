@@ -17,7 +17,7 @@ func _game_start():
 	$Character/Timer.start()
 	$hud/ProgressBar.visible=true
 func _on_enemyspawntimer_timeout():
-	INTenemyamount = score/5-1
+	INTenemyamount = sqrt(score)
 	if INTenemyamount < 1:
 		INTenemyamount = 1
 	if INTenemyamount > 10:
