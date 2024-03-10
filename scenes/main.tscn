@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://djkr33bvpx4wv"]
+[gd_scene load_steps=9 format=3 uid="uid://djkr33bvpx4wv"]
 
 [ext_resource type="Script" path="res://scriptes/main.gd" id="1_h16ri"]
 [ext_resource type="PackedScene" uid="uid://dl6aph6gafpig" path="res://scenes/hud.tscn" id="3_bc5xh"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cbowj5q66wfgq" path="res://resources/sound/spawn.mp3" id="3_fvdxj"]
 [ext_resource type="Texture2D" uid="uid://bokvfuyqn4hxh" path="res://resources/art/background.png" id="5_um5yw"]
 [ext_resource type="AudioStream" uid="uid://bb5fc5qorlh02" path="res://resources/sound/expl.mp3" id="6_rkik2"]
+[ext_resource type="PackedScene" uid="uid://cwyh5rl4gqbsk" path="res://scenes/stuff.tscn" id="7_h5o0n"]
 
 [sub_resource type="Curve2D" id="Curve2D_6bg8d"]
 _data = {
@@ -59,12 +60,25 @@ stream = ExtResource("6_rkik2")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(960, 540)
 
+[node name="Node2D" parent="." instance=ExtResource("7_h5o0n")]
+position = Vector2(291, -106)
+
+[node name="Area2D" parent="Node2D" index="0"]
+input_pickable = false
+
+[node name="stuffspawntimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="count_start" from="hud" to="." method="_on_hud_count_start"]
 [connection signal="game_exit" from="hud" to="." method="_on_hud_game_exit"]
 [connection signal="game_restart" from="hud" to="." method="_on_hud_game_restart"]
 [connection signal="game_start" from="hud" to="." method="_game_start"]
 [connection signal="timeout" from="enemyspawntimer" to="." method="_on_enemyspawntimer_timeout"]
 [connection signal="game_over" from="Character" to="." method="_on_game_over"]
+[connection signal="area_entered" from="Node2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="stuffspawntimer" to="." method="_on_stuffspawntimer_timeout"]
 
 [editable path="hud"]
 [editable path="Character"]
+[editable path="Node2D"]

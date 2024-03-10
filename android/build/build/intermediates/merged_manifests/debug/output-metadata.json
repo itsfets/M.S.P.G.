@@ -4,15 +4,15 @@
     "type": "MERGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.itsfets.game",
+  "applicationId": "com.itsfets.MSPG",
   "variantName": "debug",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 14,
-      "versionName": "1.0.0.14",
+      "versionCode": 15,
+      "versionName": "1.0.0.15",
       "outputFile": "AndroidManifest.xml"
     }
   ],

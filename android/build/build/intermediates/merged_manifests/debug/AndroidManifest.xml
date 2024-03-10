@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.itsfets.game"
+    package="com.itsfets.MSPG"
     android:installLocation="auto"
-    android:versionCode="14"
-    android:versionName="1.0.0.14" >
+    android:versionCode="15"
+    android:versionName="1.0.0.15" >
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -28,12 +28,12 @@
         android:version="0x400003" />
 
     <application
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:appCategory="game"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:extractNativeLibs="false"
-        android:hasFragileUserData="false"
+        android:hasFragileUserData="true"
         android:icon="@mipmap/icon"
         android:isGame="true"
         android:label="@string/godot_project_name_string"
@@ -73,7 +73,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.itsfets.game.fileprovider"
+            android:authorities="com.itsfets.MSPG.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data

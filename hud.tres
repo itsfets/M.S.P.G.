@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://tommsggnsksp"]
+
+[ext_resource type="FontFile" uid="uid://d0d281v2wubk6" path="res://TinyUnicode.ttf" id="1_4y6ng"]
+
+[resource]
+font = ExtResource("1_4y6ng")
+font_size = 48
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.67451)
+shadow_offset = Vector2(3, 3)
