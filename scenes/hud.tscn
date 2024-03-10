@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl6aph6gafpig"]
+[gd_scene load_steps=7 format=3 uid="uid://dl6aph6gafpig"]
 
 [ext_resource type="Script" path="res://scriptes/hud.gd" id="1_ht6m2"]
 [ext_resource type="FontFile" uid="uid://d0d281v2wubk6" path="res://TinyUnicode.ttf" id="2_1d2hy"]
 [ext_resource type="LabelSettings" uid="uid://bfinug6x7qmyh" path="res://text.tres" id="2_y1hv0"]
+[ext_resource type="LabelSettings" uid="uid://tommsggnsksp" path="res://hud.tres" id="4_dbj5u"]
+[ext_resource type="Texture2D" uid="uid://c7x4ly77itwtf" path="res://resources/art/close.png" id="5_08orx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6rmpb"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 0.686275)
+corner_detail = 1
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource("1_ht6m2")
@@ -103,16 +109,62 @@ offset_top = 20.0
 offset_right = 60.0
 offset_bottom = 68.0
 size_flags_horizontal = 4
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 3
-theme_override_constants/outline_size = 5
-theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_1d2hy")
+label_settings = ExtResource("4_dbj5u")
+
+[node name="stuffcounter" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_top = 20.0
+offset_right = -12.0
+offset_bottom = 68.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_1d2hy")
+label_settings = ExtResource("4_dbj5u")
+
+[node name="MenuButton" type="MenuButton" parent="."]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -134.0
+offset_top = 672.0
+offset_right = 134.0
+offset_bottom = -336.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1d2hy")
+theme_override_font_sizes/font_size = 80
+text = "How to play"
+flat = false
+
+[node name="HTP" type="Label" parent="."]
+visible = false
+offset_left = 826.0
+offset_top = 262.0
+offset_right = 1094.0
+offset_bottom = 792.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_6rmpb")
+text = "This is a simple game: you control a ship with your mouse/fingers and must avoid enemy ships, while also collecting \"Stuff\". The more \"Stuff\" you get and the more enemy ships you dodge, the higher your score will be!"
+label_settings = ExtResource("4_dbj5u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="HTP"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = -48.0
+offset_right = 268.0
 theme_override_fonts/font = ExtResource("2_1d2hy")
 theme_override_font_sizes/font_size = 60
+icon = ExtResource("5_08orx")
 
 [connection signal="count_start" from="." to="." method="_on_count_start"]
 [connection signal="pressed" from="startbutton" to="." method="_on_startbutton_pressed"]
 [connection signal="timeout" from="startbutton/waittimer" to="." method="_on_waittimer_timeout"]
 [connection signal="pressed" from="exitbutton" to="." method="_on_exitbutton_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="HTP/Button" to="." method="_on_button_pressed"]

@@ -1,9 +1,9 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.itsfets.game"
+3    package="com.itsfets.MSPG"
 4    android:installLocation="auto"
-5    android:versionCode="14"
-6    android:versionName="1.0.0.14" >
+5    android:versionCode="15"
+6    android:versionName="1.0.0.15" >
 7
 8    <uses-sdk
 9        android:minSdkVersion="24"
@@ -45,7 +45,7 @@
 29
 30    <application
 30-->E:\ACTUAL SCHOOL PROJECT\android\build\AndroidManifest.xml:19:5-53:19
-31        android:allowBackup="false"
+31        android:allowBackup="true"
 31-->E:\ACTUAL SCHOOL PROJECT\android\build\AndroidManifest.xml:21:9-36
 32        android:appCategory="game"
 32-->E:\ACTUAL SCHOOL PROJECT\android\build\AndroidManifest.xml:23:9-35
@@ -53,7 +53,7 @@
 33-->[androidx.core:core:1.2.0] C:\Users\itsfets\.gradle\caches\transforms-3\9bcb1a65f5938aad264f4d73e9a06f28\transformed\core-1.2.0\AndroidManifest.xml:24:18-86
 34        android:debuggable="true"
 35        android:extractNativeLibs="false"
-36        android:hasFragileUserData="false"
+36        android:hasFragileUserData="true"
 36-->E:\ACTUAL SCHOOL PROJECT\android\build\AndroidManifest.xml:25:9-43
 37        android:icon="@mipmap/icon"
 37-->E:\ACTUAL SCHOOL PROJECT\android\build\AndroidManifest.xml:22:9-36
@@ -127,7 +127,7 @@
 74-->[godot-lib.template_debug.aar] C:\Users\itsfets\.gradle\caches\transforms-3\9a2d4eb6c6396b495fa445404429297b\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:26:9-34:20
 75            android:name="androidx.core.content.FileProvider"
 75-->[godot-lib.template_debug.aar] C:\Users\itsfets\.gradle\caches\transforms-3\9a2d4eb6c6396b495fa445404429297b\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:27:13-62
-76            android:authorities="com.itsfets.game.fileprovider"
+76            android:authorities="com.itsfets.MSPG.fileprovider"
 76-->[godot-lib.template_debug.aar] C:\Users\itsfets\.gradle\caches\transforms-3\9a2d4eb6c6396b495fa445404429297b\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:28:13-64
 77            android:exported="false"
 77-->[godot-lib.template_debug.aar] C:\Users\itsfets\.gradle\caches\transforms-3\9a2d4eb6c6396b495fa445404429297b\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:29:13-37
