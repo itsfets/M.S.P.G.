@@ -1,4 +1,4 @@
-#Sun Mar 10 20:14:21 MSK 2024
+#Sun Mar 10 20:25:57 MSK 2024
 base.2=E\:\\ACTUAL SCHOOL PROJECT\\android\\build\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
 path.2=6/classes.dex
 base.1=E\:\\ACTUAL SCHOOL PROJECT\\android\\build\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
