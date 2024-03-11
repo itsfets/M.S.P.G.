@@ -38,17 +38,17 @@ func _on_stuffspawntimer_timeout():
 	$Node2D.position=Vector2(randf_range(100,1820),randf_range(100,980))
 	$Node2D.visible=true
 	$Node2D/Area2D/CollisionPolygon2D.disabled=false
-	$Node2D/Area2D/CPUParticles2D.amount=8
+	$Node2D/Area2D/CPUParticles2D.restart()
 func _on_area_2d_area_entered(area):
 	stuffcount+=1
 	$stuffspawntimer.start()
 	$Node2D.visible=false
 	$Node2D/Area2D/CollisionPolygon2D.set_deferred("disabled",true)
-	$Node2D/Area2D/CPUParticles2D.amount=0
 func _on_game_over():
 	$hud.gamestate=1
 	if score+stuffcount*3>gl_vars.score:
 		FileAccess.open("user://save.save",FileAccess.WRITE).store_float(score+stuffcount*3)
+		gl_vars._init()
 	$Character.visible=false
 	$enemyspawntimer.stop()
 	$hud/scorelabel.hide()
