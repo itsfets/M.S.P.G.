@@ -3,6 +3,7 @@ var mobs=[preload("res://scenes/mob.tscn"),preload("res://scenes/mob2.tscn")]
 var INTenemyamount:int
 var score:int
 var stuffcount=0
+@onready var mob_spos=get_node("Path2D/PathFollow2D")
 func _process(delta):
 	if FileAccess.file_exists("user://save.save"):
 		$hud/highscore.text=str("Highscore: ",FileAccess.open("user://save.save",FileAccess.READ).get_float())
@@ -27,15 +28,19 @@ func _on_enemyspawntimer_timeout():
 		INTenemyamount=5
 	for i in range(INTenemyamount):
 		var mob=mobs.pick_random().instantiate()
-		get_parent().add_child(mob)
-		var mob_spos=get_node("Path2D/PathFollow2D")
 		mob_spos.progress_ratio=randf()
 		mob.position=mob_spos.position
+		check_pos()
+		get_parent().add_child(mob)
 		score+=1
 	$hud/scorelabel.text=str("Score: ",score)
 	$enemyspawntimer/AudioStreamPlayer.play()
+func check_pos():
+	if gl_vars.plposition.distance_to(mob_spos.position)<800:
+		mob_spos.progress_ratio=randf()
+		check_pos()
 func _on_stuffspawntimer_timeout():
-	$Node2D.position=Vector2(randf_range(100,1820),randf_range(100,980))
+	$Node2D.position=Vector2(randf_range(200,1720),randf_range(200,880))
 	$Node2D.visible=true
 	$Node2D/Area2D/CollisionPolygon2D.disabled=false
 	$Node2D/Area2D/CPUParticles2D.restart()
