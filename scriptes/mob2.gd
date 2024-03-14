@@ -2,7 +2,7 @@ extends CharacterBody2D
 var timerleftratio: float
 var speed=0
 func _on_spawn():
-	$Timer.wait_time = 9+-randf_range(-2,4)
+	$Timer.wait_time += randf_range(-2,4)
 func _process(delta):
 	timerleftratio = $Timer.time_left/($Timer.wait_time-4)
 	if timerleftratio > 1:

@@ -10,7 +10,7 @@ func _process(delta):
 	apply_scale(Vector2(sqrt(timerleftratio*3),sqrt(timerleftratio*3)))
 	if scale > Vector2(1,1):
 		scale = Vector2(1,1)
-	speed = position.distance_squared_to(gl_vars.plposition)-position.distance_to(gl_vars.plposition)*30
+	speed += position.distance_to(gl_vars.plposition)/500
 	if speed > 900:
 		speed = 900
 	velocity=speed*position.direction_to(gl_vars.plposition)*timerleftratio
