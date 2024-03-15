@@ -28,17 +28,16 @@ func _on_enemyspawntimer_timeout():
 		INTenemyamount=5
 	for i in range(INTenemyamount):
 		var mob=mobs.pick_random().instantiate()
-		mob_spos.progress_ratio=randf()
+		mob_spos.progress_ratio=randf_range(0,1)
 		mob.position=mob_spos.position
-		check_pos()
-		get_parent().add_child(mob)
-		score+=1
-	$hud/scorelabel.text=str("Score: ",score)
-	$enemyspawntimer/AudioStreamPlayer.play()
-func check_pos():
-	if gl_vars.plposition.distance_to(mob_spos.position)<800:
-		mob_spos.progress_ratio=randf()
-		check_pos()
+		while gl_vars.plposition.distance_to(mob_spos.position)<800:
+			mob_spos.progress_ratio=randf()
+			mob.position=mob_spos.position
+		if gl_vars.plposition.distance_to(mob_spos.position)>=800:
+			get_parent().add_child(mob)
+			score+=1
+			$hud/scorelabel.text=str("Score: ",score)
+			$enemyspawntimer/AudioStreamPlayer.play()
 func _on_stuffspawntimer_timeout():
 	$Node2D.position=Vector2(randf_range(200,1720),randf_range(200,880))
 	$Node2D.visible=true

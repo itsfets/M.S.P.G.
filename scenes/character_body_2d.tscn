@@ -20,11 +20,12 @@ randomness = 0.1
 fixed_fps = 144
 texture = ExtResource("2_2p162")
 gravity = Vector2(0, 0)
-initial_velocity_min = 20.0
-initial_velocity_max = 100.0
+initial_velocity_min = 40.0
+initial_velocity_max = 200.0
 angular_velocity_min = -45.0
 angular_velocity_max = 45.0
-scale_amount_min = 5.0
+linear_accel_min = -20.0
+scale_amount_min = 2.5
 scale_amount_max = 5.0
 
 [node name="Sprite" type="Sprite2D" parent="." groups=["player"]]
