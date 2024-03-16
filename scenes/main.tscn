@@ -66,6 +66,10 @@ position = Vector2(291, -106)
 [node name="Area2D" parent="Node2D" index="0"]
 input_pickable = false
 
+[node name="AnimatedSprite2D" parent="Node2D/Area2D" index="1"]
+frame = 6
+frame_progress = 0.730969
+
 [node name="stuffspawntimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true

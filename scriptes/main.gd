@@ -41,13 +41,13 @@ func _on_enemyspawntimer_timeout():
 func _on_stuffspawntimer_timeout():
 	$Node2D.position=Vector2(randf_range(200,1720),randf_range(200,880))
 	$Node2D.visible=true
-	$Node2D/Area2D/CollisionPolygon2D.disabled=false
 	$Node2D/Area2D/CPUParticles2D.restart()
+	$Node2D/Area2D/AnimatedSprite2D.play()
+	$Node2D/Area2D/AnimatedSprite2D.set_frame_and_progress(0,01)
 func _on_area_2d_area_entered(area):
 	stuffcount+=1
 	$stuffspawntimer.start()
 	$Node2D.visible=false
-	$Node2D/Area2D/CollisionPolygon2D.set_deferred("disabled",true)
 func _on_game_over():
 	$hud.gamestate=1
 	if score+stuffcount*3>gl_vars.score:

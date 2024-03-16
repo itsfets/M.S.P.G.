@@ -1,22 +1,78 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwyh5rl4gqbsk"]
+[gd_scene load_steps=13 format=3 uid="uid://cwyh5rl4gqbsk"]
 
+[ext_resource type="Script" path="res://scriptes/stuff.gd" id="1_aw840"]
 [ext_resource type="Texture2D" uid="uid://cnf54m65ng6eo" path="res://resources/art/stuff.png" id="1_v0w7f"]
 [ext_resource type="Texture2D" uid="uid://i58amjegl33o" path="res://resources/art/dust1.png" id="2_q8nh7"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_edv75"]
+atlas = ExtResource("1_v0w7f")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qan4e"]
+atlas = ExtResource("1_v0w7f")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yql3s"]
+atlas = ExtResource("1_v0w7f")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0hnv"]
+atlas = ExtResource("1_v0w7f")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34nx3"]
+atlas = ExtResource("1_v0w7f")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnohm"]
+atlas = ExtResource("1_v0w7f")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foonp"]
+atlas = ExtResource("1_v0w7f")
+region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahsnq"]
+atlas = ExtResource("1_v0w7f")
+region = Rect2(56, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7ff6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edv75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qan4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yql3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0hnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34nx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnohm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foonp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahsnq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
 [node name="Node2D" type="Node2D"]
+position = Vector2(234, 181)
+script = ExtResource("1_aw840")
 
 [node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2(-2.86102e-06, -2.86102e-06)
-scale = Vector2(2, 2)
-build_mode = 1
-polygon = PackedVector2Array(-7.5, -7.5, -2.5, -7.5, -2.5, -10, 2.5, -10, 2.5, -7.5, 7.5, -7.5, 7.5, -5, 10, -5, 10, 5, 7.5, 5, 7.5, 7.5, 2.5, 7.5, 2.5, 10, -2.5, 10, -2.5, 7.5, -7.5, 7.5, -7.5, 5, -10, 5, -10, -5, -7.5, -5)
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(1.13687e-13, 1.13687e-13)
-scale = Vector2(5, 5)
-texture = ExtResource("1_v0w7f")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Area2D"]
 lifetime = 2.0
@@ -42,3 +98,66 @@ damping_max = 0.01
 scale_amount_min = 2.0
 scale_amount_max = 2.0
 color = Color(0.0823529, 0.0823529, 0.0823529, 0.776471)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_p7ff6")
+autoplay = "default"
+frame = 7
+
+[node name="hitbox_0" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(-7.5, -7.5, -2.5, -7.5, -2.5, -10, 2.5, -10, 2.5, -7.5, 7.5, -7.5, 7.5, -5, 10, -5, 10, 5, 7.5, 5, 7.5, 7.5, 2.5, 7.5, 2.5, 10, -2.5, 10, -2.5, 7.5, -7.5, 7.5, -7.5, 5, -10, 5, -10, -5, -7.5, -5)
+
+[node name="hitbox_1" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(-7.5, -7.5, 1.43051e-06, -7.5, 1.43051e-06, -10, 5, -10, 5, -7.5, 7.5, -7.5, 7.5, -5, 10, -5, 10, 5, 7.5, 5, 7.5, 7.5, 2.5, 7.5, 2.5, 10, -5, 10, -5, 7.5, -7.5, 7.5, -7.5, 5, -10, 5, -10, -5, -7.5, -5)
+disabled = true
+
+[node name="hitbox_2" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(-7.5, -7.5, 2.5, -7.5, 2.5, -10, 7.5, -10, 7.5, -7.5, 10, -7.5, 10, -5, 10, 5, 7.5, 5, 7.5, 7.5, 2.5, 7.5, 2.5, 10, -2.5, 10, -7.5, 10, -7.5, 7.5, -10, 7.5, -10, 5, -10, -5, -7.5, -5)
+disabled = true
+
+[node name="hitbox_3" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(-7.5, -7.5, 5, -7.5, 5, -10, 10, -10, 10, -5, 10, 5, 7.5, 5, 7.5, 7.5, 2.5, 7.5, 2.5, 10, -2.5, 10, -10, 10, -10, 5, -10, -5, -7.5, -5)
+disabled = true
+
+[node name="hitbox_4" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(10, -7.5, 10, 7.5, -10, 7.5, -10, -7.5)
+disabled = true
+
+[node name="hitbox_5" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(-5, -10, -5, -7.5, 2.5, -7.5, 7.5, -7.5, 7.5, -5, 10, -5, 10, 5, 10, 10, 2.5, 10, -2.5, 10, -2.5, 7.5, -7.5, 7.5, -7.5, 5, -10, 5, -10, -5, -10, -10)
+disabled = true
+
+[node name="hitbox_6" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(-7.5, -7.5, -7.5, -10, -2.5, -10, -2.5, -7.5, 7.5, -7.5, 7.5, -5, 10, -5, 10, 5, 10, 7.5, 7.5, 7.5, 7.5, 10, 1.43051e-06, 10, 1.43051e-06, 7.5, -2.5, 7.5, -7.5, 7.5, -7.5, 5, -10, 5, -10, -5, -10, -7.5)
+disabled = true
+
+[node name="hitbox_7" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(-7.5, -7.5, -5, -7.5, -5, -10, 1.43051e-06, -10, 1.43051e-06, -7.5, 7.5, -7.5, 7.5, -5, 10, -5, 10, 5, 7.5, 5, 7.5, 7.5, 5, 7.5, 5, 10, -2.5, 10, -2.5, 7.5, -7.5, 7.5, -7.5, 5, -10, 5, -10, -5, -7.5, -5)
+disabled = true
+
+[connection signal="frame_changed" from="Area2D/AnimatedSprite2D" to="." method="_new_frame"]
