@@ -9,6 +9,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6rmpb"]
 bg_color = Color(0.152941, 0.152941, 0.152941, 0.686275)
 corner_detail = 1
+anti_aliasing = false
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource("1_ht6m2")
@@ -155,12 +156,16 @@ autowrap_mode = 3
 
 [node name="Button" type="Button" parent="HTP"]
 layout_mode = 0
-offset_left = 220.0
-offset_top = -48.0
-offset_right = 268.0
+offset_left = 224.0
+offset_top = -44.0
+offset_right = 272.0
+offset_bottom = 4.0
 theme_override_fonts/font = ExtResource("2_1d2hy")
 theme_override_font_sizes/font_size = 60
+action_mode = 0
 icon = ExtResource("5_08orx")
+flat = true
+icon_alignment = 1
 
 [connection signal="count_start" from="." to="." method="_on_count_start"]
 [connection signal="pressed" from="startbutton" to="." method="_on_startbutton_pressed"]
