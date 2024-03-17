@@ -58,8 +58,7 @@ position = Vector2(291, -106)
 [node name="Area2D" parent="Node2D" index="0"]
 input_pickable = false
 
-[node name="AnimatedSprite2D" parent="Node2D/Area2D" index="1"]
-frame = 6
+[node name="AnimatedSprite2D" parent="Node2D/Area2D" index="0"]
 frame_progress = 0.730969
 
 [node name="stuffspawntimer" type="Timer" parent="."]
@@ -68,9 +67,6 @@ one_shot = true
 
 [node name="Character" parent="." instance=ExtResource("3_ftjma")]
 visible = false
-
-[node name="Timer" parent="Character" index="4"]
-wait_time = 10.0
 
 [connection signal="count_start" from="hud" to="." method="_on_hud_count_start"]
 [connection signal="game_exit" from="hud" to="." method="_on_hud_game_exit"]
@@ -83,4 +79,3 @@ wait_time = 10.0
 
 [editable path="hud"]
 [editable path="Node2D"]
-[editable path="Character"]

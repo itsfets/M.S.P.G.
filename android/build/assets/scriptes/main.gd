@@ -65,6 +65,7 @@ func _on_game_over():
 	$hud/gamename.text=str("You lost!\n Your score: ",score+stuffcount*3)
 	$expl.play()
 	$hud/ProgressBar.visible=false
+	$Node2D.visible=false
 func _on_hud_game_restart():
 	get_tree().reload_current_scene()
 func _on_hud_game_exit():
