@@ -41,13 +41,15 @@ func _on_enemyspawntimer_timeout():
 func _on_stuffspawntimer_timeout():
 	$Node2D.position=Vector2(randf_range(200,1720),randf_range(200,880))
 	$Node2D.visible=true
-	$Node2D/Area2D/CollisionPolygon2D.disabled=false
 	$Node2D/Area2D/CPUParticles2D.restart()
+	$Node2D/Area2D/hitbox_0.disabled=false
+	$Node2D/Area2D/AnimatedSprite2D.play()
+	$Node2D/Area2D/AnimatedSprite2D.set_frame_and_progress(0,0)
 func _on_area_2d_area_entered(area):
 	stuffcount+=1
 	$stuffspawntimer.start()
 	$Node2D.visible=false
-	$Node2D/Area2D/CollisionPolygon2D.set_deferred("disabled",true)
+	$Node2D/Area2D/hitbox_0.set_deferred("disabled",true)
 func _on_game_over():
 	$hud.gamestate=1
 	if score+stuffcount*3>gl_vars.score:
@@ -63,6 +65,7 @@ func _on_game_over():
 	$hud/gamename.text=str("You lost!\n Your score: ",score+stuffcount*3)
 	$expl.play()
 	$hud/ProgressBar.visible=false
+	$Node2D.visible=false
 func _on_hud_game_restart():
 	get_tree().reload_current_scene()
 func _on_hud_game_exit():

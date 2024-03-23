@@ -1,9 +1,6 @@
 extends CharacterBody2D
 var target:Vector2
-var speed
-var distancesincelast
-var possum=0
-var posold
+var speed = 0
 var touch = []
 signal game_over
 func _unhandled_input(event):
@@ -26,13 +23,9 @@ func start(pos):
 	$Area2D/HitBox.disabled=false
 func _process(delta):
 	gl_vars.plposition=position
-	posold=get_position_delta().length()
-	distancesincelast=randfn(5,1)
-	possum+=posold
-	if possum>=distancesincelast:
-		possum=0
+	if speed>=150: 
 		$Particles.emitting = true
-	elif possum<distancesincelast:
+	else:
 		$Particles.emitting = false
 func _physics_process(delta):
 	speed=position.distance_to(target)*4

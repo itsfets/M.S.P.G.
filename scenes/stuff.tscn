@@ -1,29 +1,100 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwyh5rl4gqbsk"]
+[gd_scene load_steps=14 format=3 uid="uid://cwyh5rl4gqbsk"]
 
+[ext_resource type="Script" path="res://scriptes/stuff.gd" id="1_aw840"]
 [ext_resource type="Texture2D" uid="uid://cnf54m65ng6eo" path="res://resources/art/stuff.png" id="1_v0w7f"]
-[ext_resource type="Texture2D" uid="uid://i58amjegl33o" path="res://resources/art/dust1.png" id="2_q8nh7"]
+[ext_resource type="Texture2D" uid="uid://dptb1egb4nldq" path="res://resources/art/stuff_particle.png" id="2_jcvcm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4y8bt"]
+atlas = ExtResource("1_v0w7f")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd4c0"]
+atlas = ExtResource("1_v0w7f")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cseg"]
+atlas = ExtResource("1_v0w7f")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpf7c"]
+atlas = ExtResource("1_v0w7f")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6wcx"]
+atlas = ExtResource("1_v0w7f")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_steqf"]
+atlas = ExtResource("1_v0w7f")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd1gn"]
+atlas = ExtResource("1_v0w7f")
+region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kkg2"]
+atlas = ExtResource("1_v0w7f")
+region = Rect2(56, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7ff6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4y8bt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd4c0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cseg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpf7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6wcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_steqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd1gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kkg2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="Curve" id="Curve_x14k8"]
+min_value = -180.0
+max_value = 180.0
+_data = [Vector2(0, -180), 0.0, 3.6e+07, 0, 1, Vector2(1e-05, 180), 3.6e+07, 0.0, 1, 0, Vector2(0.25, 180), 0.0, 0.0, 0, 0, Vector2(0.25001, -180), 0.0, 0.0, 0, 0, Vector2(0.5, -180), 0.0, 0.0, 0, 0, Vector2(0.50001, 180), 0.0, 0.0, 0, 0, Vector2(0.75, 180), 0.0, 0.0, 0, 0, Vector2(0.75001, -180), 0.0, 0.0, 0, 0, Vector2(0.99999, -180), 0.0, 0.0, 0, 0, Vector2(1, 180), 0.0, 0.0, 0, 0]
+point_count = 10
+metadata/_snap_enabled = true
+metadata/_snap_count = 4
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(234, 181)
+script = ExtResource("1_aw840")
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2(-2.86102e-06, -2.86102e-06)
-scale = Vector2(2, 2)
-build_mode = 1
-polygon = PackedVector2Array(-7.5, -7.5, -2.5, -7.5, -2.5, -10, 2.5, -10, 2.5, -7.5, 7.5, -7.5, 7.5, -5, 10, -5, 10, 5, 7.5, 5, 7.5, 7.5, 2.5, 7.5, 2.5, 10, -2.5, 10, -2.5, 7.5, -7.5, 7.5, -7.5, 5, -10, 5, -10, -5, -7.5, -5)
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(1.13687e-13, 1.13687e-13)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 scale = Vector2(5, 5)
-texture = ExtResource("1_v0w7f")
+sprite_frames = SubResource("SpriteFrames_p7ff6")
+autoplay = "default"
+frame = 6
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Area2D"]
 lifetime = 2.0
+lifetime_randomness = 0.5
 draw_order = 1
-texture = ExtResource("2_q8nh7")
+texture = ExtResource("2_jcvcm")
 emission_shape = 3
-emission_rect_extents = Vector2(20, 20)
+emission_rect_extents = Vector2(30, 30)
 direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)
@@ -39,6 +110,74 @@ radial_accel_max = 0.01
 tangential_accel_min = -0.01
 tangential_accel_max = 0.01
 damping_max = 0.01
-scale_amount_min = 2.0
-scale_amount_max = 2.0
-color = Color(0.0823529, 0.0823529, 0.0823529, 0.776471)
+angle_min = -180.0
+angle_max = 180.0
+angle_curve = SubResource("Curve_x14k8")
+scale_amount_min = 2.5
+scale_amount_max = 2.5
+color = Color(0.27451, 0.27451, 0.27451, 0.788235)
+
+[node name="hitbox_0" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(-7.5, -7.5, -2.5, -7.5, -2.5, -10, 2.5, -10, 2.5, -7.5, 7.5, -7.5, 7.5, -5, 10, -5, 10, 5, 7.5, 5, 7.5, 7.5, 2.5, 7.5, 2.5, 10, -2.5, 10, -2.5, 7.5, -7.5, 7.5, -7.5, 5, -10, 5, -10, -5, -7.5, -5)
+
+[node name="hitbox_1" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(-7.5, -7.5, 1.43051e-06, -7.5, 1.43051e-06, -10, 5, -10, 5, -7.5, 7.5, -7.5, 7.5, -5, 10, -5, 10, 5, 7.5, 5, 7.5, 7.5, 2.5, 7.5, 2.5, 10, -5, 10, -5, 7.5, -7.5, 7.5, -7.5, 5, -10, 5, -10, -5, -7.5, -5)
+disabled = true
+
+[node name="hitbox_2" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(-7.5, -7.5, 2.5, -7.5, 2.5, -10, 7.5, -10, 7.5, -7.5, 10, -7.5, 10, -5, 10, 5, 7.5, 5, 7.5, 7.5, 2.5, 7.5, 2.5, 10, -2.5, 10, -7.5, 10, -7.5, 7.5, -10, 7.5, -10, 5, -10, -5, -7.5, -5)
+disabled = true
+
+[node name="hitbox_3" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(-7.5, -7.5, 5, -7.5, 5, -10, 10, -10, 10, -5, 10, 5, 7.5, 5, 7.5, 7.5, 2.5, 7.5, 2.5, 10, -2.5, 10, -10, 10, -10, 5, -10, -5, -7.5, -5)
+disabled = true
+
+[node name="hitbox_4" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(10, -7.5, 10, 7.5, -10, 7.5, -10, -7.5)
+disabled = true
+
+[node name="hitbox_5" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(-5, -10, -5, -7.5, 2.5, -7.5, 7.5, -7.5, 7.5, -5, 10, -5, 10, 5, 10, 10, 2.5, 10, -2.5, 10, -2.5, 7.5, -7.5, 7.5, -7.5, 5, -10, 5, -10, -5, -10, -10)
+disabled = true
+
+[node name="hitbox_6" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(-7.5, -7.5, -7.5, -10, -2.5, -10, -2.5, -7.5, 7.5, -7.5, 7.5, -5, 10, -5, 10, 5, 10, 7.5, 7.5, 7.5, 7.5, 10, 1.43051e-06, 10, 1.43051e-06, 7.5, -2.5, 7.5, -7.5, 7.5, -7.5, 5, -10, 5, -10, -5, -10, -7.5)
+disabled = true
+
+[node name="hitbox_7" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+position = Vector2(-2.86102e-06, -2.86102e-06)
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(-7.5, -7.5, -5, -7.5, -5, -10, 1.43051e-06, -10, 1.43051e-06, -7.5, 7.5, -7.5, 7.5, -5, 10, -5, 10, 5, 7.5, 5, 7.5, 7.5, 5, 7.5, 5, 10, -2.5, 10, -2.5, 7.5, -7.5, 7.5, -7.5, 5, -10, 5, -10, -5, -7.5, -5)
+disabled = true
+
+[connection signal="frame_changed" from="Area2D/AnimatedSprite2D" to="." method="_new_frame"]

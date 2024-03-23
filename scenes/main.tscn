@@ -38,15 +38,6 @@ curve = SubResource("Curve2D_6bg8d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 
-[node name="Character" parent="." instance=ExtResource("3_ftjma")]
-visible = false
-
-[node name="Timer" parent="Character" index="4"]
-wait_time = 3.0
-
-[node name="DTTimer" parent="Character" index="5"]
-wait_time = 0.2
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
@@ -61,24 +52,30 @@ stream = ExtResource("6_rkik2")
 position = Vector2(960, 540)
 
 [node name="Node2D" parent="." instance=ExtResource("7_h5o0n")]
+visible = false
 position = Vector2(291, -106)
 
 [node name="Area2D" parent="Node2D" index="0"]
 input_pickable = false
 
+[node name="AnimatedSprite2D" parent="Node2D/Area2D" index="0"]
+frame_progress = 0.730969
+
 [node name="stuffspawntimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="Character" parent="." instance=ExtResource("3_ftjma")]
+visible = false
 
 [connection signal="count_start" from="hud" to="." method="_on_hud_count_start"]
 [connection signal="game_exit" from="hud" to="." method="_on_hud_game_exit"]
 [connection signal="game_restart" from="hud" to="." method="_on_hud_game_restart"]
 [connection signal="game_start" from="hud" to="." method="_game_start"]
 [connection signal="timeout" from="enemyspawntimer" to="." method="_on_enemyspawntimer_timeout"]
-[connection signal="game_over" from="Character" to="." method="_on_game_over"]
 [connection signal="area_entered" from="Node2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="stuffspawntimer" to="." method="_on_stuffspawntimer_timeout"]
+[connection signal="game_over" from="Character" to="." method="_on_game_over"]
 
 [editable path="hud"]
-[editable path="Character"]
 [editable path="Node2D"]
