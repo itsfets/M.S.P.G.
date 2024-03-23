@@ -42,19 +42,19 @@ func _on_stuffspawntimer_timeout():
 	$Node2D.position=Vector2(randf_range(200,1720),randf_range(200,880))
 	$Node2D.visible=true
 	$Node2D/Area2D/CPUParticles2D.restart()
-	$Node2D/Area2D/hitbox_0.disabled=false
+	$Node2D/Area2D.monitoring=true
 	$Node2D/Area2D/AnimatedSprite2D.play()
 	$Node2D/Area2D/AnimatedSprite2D.set_frame_and_progress(0,0)
 func _on_area_2d_area_entered(area):
 	stuffcount+=1
 	$stuffspawntimer.start()
 	$Node2D.visible=false
-	$Node2D/Area2D/hitbox_0.set_deferred("disabled",true)
+	$Node2D/Area2D.set_deferred("monitoring",false)
 func _on_game_over():
 	$hud.gamestate=1
 	if score+stuffcount*3>gl_vars.score:
 		FileAccess.open("user://save.save",FileAccess.WRITE).store_float(score+stuffcount*3)
-		gl_vars._init()
+		gl_vars.refresh()
 	$Character.visible=false
 	$enemyspawntimer.stop()
 	$hud/scorelabel.hide()
