@@ -3,7 +3,7 @@
     package="com.itsfets.MSPG"
     android:installLocation="auto"
     android:versionCode="31"
-    android:versionName="1.0.0.24(7)" >
+    android:versionName="1.0.0.31_rc3" >
 
     <uses-sdk
         android:minSdkVersion="24"

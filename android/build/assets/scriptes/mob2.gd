@@ -12,7 +12,7 @@ func _process(delta):
     scale = Vector2(1,1)
   $Particles.scale_amount_max=5*timerleftratio
   $Particles.scale_amount_min=2.5*timerleftratio
-  speed += 0.5+position.distance_to(gl_vars.plposition)/1000
+  speed += 0.5+(position.distance_to(gl_vars.plposition)/1000*get_tree().root.size.x/1920)
   if speed > 500:
     speed = 500
   velocity=speed*position.direction_to(gl_vars.plposition)*timerleftratio

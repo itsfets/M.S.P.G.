@@ -8,10 +8,11 @@ var width:int
 func _ready():
   noise_text.noise.seed=randi()
   noise=noise_text.noise
-  width=get_viewport_rect().size.x/tile_size.x+1
-  height=get_viewport_rect().size.y/tile_size.y+1
+  width=get_viewport_rect().size.x/(4*tile_size.x)+1
+  height=get_viewport_rect().size.y/(4*tile_size.y)+1
   _generate()
   print(width,height)
+
 func _generate():
   for x in range(width):
     for y in range(height):

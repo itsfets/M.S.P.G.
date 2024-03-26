@@ -39,8 +39,6 @@ stream = ExtResource("3_fvdxj")
 curve = SubResource("Curve2D_6bg8d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(0, 1080)
-rotation = -1.5708
 
 [node name="expl" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_rkik2")

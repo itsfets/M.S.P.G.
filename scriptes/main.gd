@@ -14,9 +14,10 @@ func _ready():
 func _process(delta):
   $hud/ProgressBar.value=100*(1-$Character/Timer.time_left/$Character/Timer.wait_time)
 func _game_start():
+  $hud/stuffcounter.text=str("Stuff's: ",stuffcount)
   $hud/text.visible=false
-  $Character.position=$Marker2D.position
-  $Character.target=$Marker2D.position
+  $Character.position=Vector2(get_tree().root.size.x/2,get_tree().root.size.y/2)
+  $Character.target=$Character.position
   $enemyspawntimer.start(1)
   $Character.visible=true
   $Character/Area2D/HitBox.disabled=false
@@ -43,7 +44,7 @@ func _on_enemyspawntimer_timeout():
       $hud/scorelabel.text=str("Points: ",score)
       $enemyspawntimer/AudioStreamPlayer.play()
 func _on_stuffspawntimer_timeout():
-  $Node2D.position=Vector2(randf_range(200,1720),randf_range(200,880))
+  $Node2D.position=Vector2(randf_range(200,get_tree().root.size.x-200),randf_range(200,get_tree().root.size.y-200))
   $Node2D.visible=true
   $Node2D/Area2D/CPUParticles2D.restart()
   $Node2D/Area2D.monitoring=true

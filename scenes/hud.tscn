@@ -19,11 +19,14 @@ anti_aliasing = false
 script = ExtResource("1_ht6m2")
 
 [node name="waittime" type="Label" parent="."]
-visible = false
-offset_left = 808.0
-offset_top = 469.0
-offset_right = 1115.0
-offset_bottom = 634.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -153.5
+offset_top = 168.0
+offset_right = 153.5
+offset_bottom = 333.0
+grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_1d2hy")
 theme_override_font_sizes/font_size = 120
