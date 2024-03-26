@@ -4,22 +4,24 @@
 [ext_resource type="PackedScene" uid="uid://dl6aph6gafpig" path="res://scenes/hud.tscn" id="3_bc5xh"]
 [ext_resource type="PackedScene" uid="uid://bt1qcr8ogdwy5" path="res://scenes/character_body_2d.tscn" id="3_ftjma"]
 [ext_resource type="AudioStream" uid="uid://cbowj5q66wfgq" path="res://resources/sound/spawn.mp3" id="3_fvdxj"]
-[ext_resource type="Texture2D" uid="uid://bokvfuyqn4hxh" path="res://resources/art/background.png" id="5_um5yw"]
 [ext_resource type="AudioStream" uid="uid://bb5fc5qorlh02" path="res://resources/sound/expl.mp3" id="6_rkik2"]
+[ext_resource type="PackedScene" uid="uid://ch2tb84akm7d8" path="res://scenes/tile_map.tscn" id="7_a2xbs"]
 [ext_resource type="PackedScene" uid="uid://cwyh5rl4gqbsk" path="res://scenes/stuff.tscn" id="7_h5o0n"]
 
 [sub_resource type="Curve2D" id="Curve2D_6bg8d"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1920, 0, 0, 0, 0, 0, 1920, 1080, 0, 0, 0, 0, 0, 1080, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 5
 
 [node name="Node" type="Node"]
 script = ExtResource("1_h16ri")
 
+[node name="Node2D2" parent="." instance=ExtResource("7_a2xbs")]
+
 [node name="hud" parent="." instance=ExtResource("3_bc5xh")]
 
-[node name="ProgressBar" parent="hud" index="5"]
+[node name="ProgressBar" parent="hud" index="4"]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
@@ -37,13 +39,6 @@ stream = ExtResource("3_fvdxj")
 curve = SubResource("Curve2D_6bg8d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
-scale = Vector2(5, 5)
-texture = ExtResource("5_um5yw")
-centered = false
 
 [node name="expl" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_rkik2")
@@ -72,6 +67,7 @@ visible = false
 [connection signal="game_exit" from="hud" to="." method="_on_hud_game_exit"]
 [connection signal="game_restart" from="hud" to="." method="_on_hud_game_restart"]
 [connection signal="game_start" from="hud" to="." method="_game_start"]
+[connection signal="game_start" from="hud" to="Node2D2" method="_on_hud_game_start"]
 [connection signal="timeout" from="enemyspawntimer" to="." method="_on_enemyspawntimer_timeout"]
 [connection signal="area_entered" from="Node2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="stuffspawntimer" to="." method="_on_stuffspawntimer_timeout"]

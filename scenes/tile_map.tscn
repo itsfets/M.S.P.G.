@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://ch2tb84akm7d8"]
+
+[ext_resource type="Script" path="res://scriptes/tile_map_gen.gd" id="1_movqf"]
+[ext_resource type="Texture2D" uid="uid://dwy5ocyrq6cla" path="res://resources/art/background_sheet.png" id="2_bu42c"]
+[ext_resource type="Texture2D" uid="uid://bswli6wjaljs" path="res://tile_map.tres" id="2_vvs7e"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mjuom"]
+texture = ExtResource("2_bu42c")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_uqfj7"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_mjuom")
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_movqf")
+noise_text = ExtResource("2_vvs7e")
+tile_size = Vector2i(8, 8)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_uqfj7")
+format = 2
