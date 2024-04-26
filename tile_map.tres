@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_resource type="NoiseTexture2D" load_steps=3 format=3 uid="uid://b52gekbjv1hcu"]
+=======
+[gd_resource type="NoiseTexture2D" load_steps=3 format=3 uid="uid://bswli6wjaljs"]
+>>>>>>> 69d6e8c7964ff2c4c779434cf13cf95640042b17
 
 [sub_resource type="Gradient" id="Gradient_5u4gv"]
 interpolation_mode = 1
@@ -8,13 +12,20 @@ metadata/_snap_enabled = true
 metadata/_snap_count = 8
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ksmlp"]
+<<<<<<< HEAD
 noise_type = 3
 frequency = 0.0217
+=======
+noise_type = 5
+>>>>>>> 69d6e8c7964ff2c4c779434cf13cf95640042b17
 
 [resource]
 width = 240
 height = 135
 generate_mipmaps = false
+<<<<<<< HEAD
 normalize = false
+=======
+>>>>>>> 69d6e8c7964ff2c4c779434cf13cf95640042b17
 color_ramp = SubResource("Gradient_5u4gv")
 noise = SubResource("FastNoiseLite_ksmlp")
