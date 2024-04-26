@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.godot.game-mergeReleaseResources-9:/values-fa/values-fa.xml",
+            "outputFile": "com.godot.game-mergeReleaseResources-16:/values-fa/values-fa.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\itsfets\\.gradle\\caches\\transforms-3\\bce0b6f33e6a5d0c9706dbd1003ff54d\\transformed\\jetified-godot-lib.template_release\\res\\values-fa\\values-fa.xml",
+                    "source": "C:\\Users\\itsfets\\.gradle\\caches\\transforms-3\\4b03f7eb766a766b0e9a505ee9d33c0f\\transformed\\jetified-godot-lib.template_release\\res\\values-fa\\values-fa.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -18,23 +18,6 @@
                         "startOffsets": "219,273,347,405,465,534,604,782,955,1057,1136",
                         "endColumns": "53,73,57,59,68,69,177,172,101,78,70",
                         "endOffsets": "268,342,400,460,529,599,777,950,1052,1131,1202"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\itsfets\\.gradle\\caches\\transforms-3\\9bcb1a65f5938aad264f4d73e9a06f28\\transformed\\core-1.2.0\\res\\values-fa\\values-fa.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "118",
-                        "endColumns": "100",
-                        "endOffsets": "214"
                     }
                 },
                 {
@@ -52,6 +35,23 @@
                         "startOffsets": "55",
                         "endColumns": "62",
                         "endOffsets": "113"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\itsfets\\.gradle\\caches\\transforms-3\\245f1aa0863a677574781ac0a1900f6e\\transformed\\core-1.8.0\\res\\values-fa\\values-fa.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "118",
+                        "endColumns": "100",
+                        "endOffsets": "214"
                     }
                 }
             ]

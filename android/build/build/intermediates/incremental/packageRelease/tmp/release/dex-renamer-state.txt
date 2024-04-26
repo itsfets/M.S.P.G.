@@ -1,4 +1,4 @@
-#Fri Apr 12 19:45:23 MSK 2024
+#Fri Apr 26 23:58:49 MSK 2024
 base.0=E\:\\ACTUAL SCHOOL PROJECT\\android\\build\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

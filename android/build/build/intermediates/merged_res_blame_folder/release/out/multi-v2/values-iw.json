@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.godot.game-mergeReleaseResources-9:/values-iw/values-iw.xml",
+            "outputFile": "com.godot.game-mergeReleaseResources-16:/values-iw/values-iw.xml",
             "map": [
                 {
                     "source": "E:\\ACTUAL SCHOOL PROJECT\\android\\build\\res\\values-iw\\godot_project_name_string.xml",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\itsfets\\.gradle\\caches\\transforms-3\\9bcb1a65f5938aad264f4d73e9a06f28\\transformed\\core-1.2.0\\res\\values-iw\\values-iw.xml",
+                    "source": "C:\\Users\\itsfets\\.gradle\\caches\\transforms-3\\245f1aa0863a677574781ac0a1900f6e\\transformed\\core-1.8.0\\res\\values-iw\\values-iw.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
